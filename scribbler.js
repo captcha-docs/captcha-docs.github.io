@@ -12,15 +12,18 @@ var getAll = function (selector, scope) {
 // setup typewriter effect in the terminal demo
 if (document.getElementsByClassName('demo').length > 0) {
   var i = 0;
-  var txt = `scribbler
-            [Entry mode; press Ctrl+D to save and quit; press Ctrl+C to quit without saving]
-
-            ###todo for new year dinner party
-
-            - milk
-            - butter
-            - green onion
-            - lots and lots of kiwis 🥝`;
+  var txt = `https://github.com/captcha-docs/*******************
+            
+            ## add your html ,css ,javascript file in this project and use kapcha for your forms  
+           
+            # why use javascript file for use captcha 
+            
+            - fast
+           
+            - It doesn't need to be installed 
+           
+            - easy to use :) 
+            `;
   var speed = 60;
 
   function typeItOut () {
