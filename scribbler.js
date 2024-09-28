@@ -1,18 +1,18 @@
 // utilities
-var get = function (selector, scope) {
+let get = function (selector, scope) {
   scope = scope ? scope : document;
   return scope.querySelector(selector);
 };
 
-var getAll = function (selector, scope) {
+let getAll = function (selector, scope) {
   scope = scope ? scope : document;
   return scope.querySelectorAll(selector);
 };
 
 // setup typewriter effect in the terminal demo
 if (document.getElementsByClassName('demo').length > 0) {
-  var i = 0;
-  var txt = `https://github.com/captcha-docs/*******************
+  let i = 0;
+  let txt = `https://github.com/captcha-docs/*******************
             
             ## add your html ,css ,javascript file in this project and use kapcha for your forms  
            
@@ -22,9 +22,10 @@ if (document.getElementsByClassName('demo').length > 0) {
            
             - It doesn't need to be installed 
            
-            - easy to use :) 
+            - easy to use 
+            :) 
             `;
-  var speed = 60;
+  let speed = 60;
 
   function typeItOut () {
     if (i < txt.length) {
@@ -40,28 +41,27 @@ if (document.getElementsByClassName('demo').length > 0) {
 // toggle tabs on codeblock
 window.addEventListener("load", function() {
   // get all tab_containers in the document
-  var tabContainers = getAll(".tab__container");
+  let tabContainers = getAll(".tab__container");
 
   // bind click event to each tab container
-  for (var i = 0; i < tabContainers.length; i++) {
+  for (let i = 0; i < tabContainers.length; i++) {
     get('.tab__menu', tabContainers[i]).addEventListener("click", tabClick);
   }
 
   // each click event is scoped to the tab_container
   function tabClick (event) {
-    var scope = event.currentTarget.parentNode;
-    var clickedTab = event.target;
-    var tabs = getAll('.tab', scope);
-    var panes = getAll('.tab__pane', scope);
-    var activePane = get(`.${clickedTab.getAttribute('data-tab')}`, scope);
-
+    let scope = event.currentTarget.parentNode;
+    let clickedTab = event.target;
+    let tabs = getAll('.tab', scope);
+    let panes = getAll('.tab__pane', scope);
+    let activePane = get(`.${clickedTab.getAttribute('data-tab')}`, scope);
     // remove all active tab classes
-    for (var i = 0; i < tabs.length; i++) {
+    for (let i = 0; i < tabs.length; i++) {
       tabs[i].classList.remove('active');
     }
 
     // remove all active pane classes
-    for (var i = 0; i < panes.length; i++) {
+    for (let i = 0; i < panes.length; i++) {
       panes[i].classList.remove('active');
     }
 
@@ -72,12 +72,12 @@ window.addEventListener("load", function() {
 });
 
 //in page scrolling for documentaiton page
-var btns = getAll('.js-btn');
-var sections = getAll('.js-section');
+let btns = getAll('.js-btn');
+let sections = getAll('.js-section');
 
 function setActiveLink(event) {
   // remove all active tab classes
-  for (var i = 0; i < btns.length; i++) {
+  for (let i = 0; i < btns.length; i++) {
     btns[i].classList.remove('selected');
   }
 
@@ -85,7 +85,7 @@ function setActiveLink(event) {
 }
 
 function smoothScrollTo(i, event) {
-  var element = sections[i];
+  let element = sections[i];
   setActiveLink(event);
 
   window.scrollTo({
@@ -96,14 +96,14 @@ function smoothScrollTo(i, event) {
 }
 
 if (btns.length && sections.length > 0) {
-  for (var i = 0; i<btns.length; i++) {
+  for (let i = 0; i<btns.length; i++) {
     btns[i].addEventListener('click', smoothScrollTo.bind(this,i));
   }
 }
 
 // fix menu to page-top once user starts scrolling
 window.addEventListener('scroll', function () {
-  var docNav = get('.doc__nav > ul');
+  let docNav = get('.doc__nav > ul');
 
   if( docNav) {
     if (window.pageYOffset > 63) {
@@ -115,8 +115,8 @@ window.addEventListener('scroll', function () {
 });
 
 // responsive navigation
-var topNav = get('.menu');
-var icon = get('.toggle');
+let topNav = get('.menu');
+let icon = get('.toggle');
 
 window.addEventListener('load', function(){
   function showNav() {
